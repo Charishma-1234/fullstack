@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ball Animation</title>
+</head>
+<body>
+    <div>
+        <img src="assets/ball.png" id="ball" width="100px"/>
+    </div>
+    <script>
+        let t = 0, x = 0, direction = 1;
+        const ball = document.getElementById("ball");
+        ball.style.position = "absolute";
+
+        function fall() {
+            t = (t + 5) % 500; 
+            x += 5 * direction;
+            if (x >= 300 || x <= 0) direction *= -1; // Reverse direction at edges
+            ball.style.top = t + "px"; 
+            ball.style.left = x + "px"; 
+            setTimeout(fall, 20);
+        }
+
+        fall();
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falling Ball Animation</title>
+</head>
+<body>
+    <div>
+        <img src="assets/ball.png" id="ball" width="100px"/>
+    </div>
+    <script>
+        // Set initial position
+        let t = 0;
+        const ball = document.getElementById("ball");
+        ball.style.position = "absolute";
+        ball.style.left = "50px"; // Adjust horizontal position if needed
+
+        function fall() {
+            t += 5; // Speed of falling (increase for faster fall)
+            ball.style.top = t + "px";
+
+            // Reset when the ball reaches the bottom (500px)
+            if (t >= 500) {
+                t = 0; // Reset to the top
+            }
+
+            setTimeout(fall, 20); // Smooth animation
+        }
+
+        fall(); // Start the falling effect
+    </script>
+</body>
+</html>
